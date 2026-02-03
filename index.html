@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Noyo 💗</title>
+
+<style>
+    body {
+        margin: 0;
+        height: 100vh;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: linear-gradient(135deg, #ffd6e8, #ffeaf4, #e0f7fa);
+        font-family: 'Segoe UI', sans-serif;
+        text-align: center;
+    }
+
+    .box {
+        background: #ffffffcc;
+        backdrop-filter: blur(10px);
+        padding: 45px;
+        border-radius: 25px;
+        box-shadow: 0 10px 40px rgba(255, 182, 193, 0.4);
+        position: relative;
+    }
+
+    h1 {
+        color: #ff6f91;
+        margin-bottom: 15px;
+        font-size: 32px;
+    }
+
+    p {
+        color: #7a7a7a;
+        margin-bottom: 25px;
+        font-size: 18px;
+    }
+
+    button {
+        padding: 12px 28px;
+        font-size: 18px;
+        margin: 15px;
+        border: none;
+        border-radius: 30px;
+        cursor: pointer;
+        transition: 0.25s ease;
+    }
+
+    #yesBtn {
+        background: #ff8fab;
+        color: white;
+        box-shadow: 0 5px 15px rgba(255, 143, 171, 0.5);
+    }
+
+    #yesBtn:hover {
+        transform: scale(1.1);
+        background: #ff6f91;
+    }
+
+    #noBtn {
+        background: #cdb4db;
+        color: white;
+        position: absolute;
+        box-shadow: 0 5px 15px rgba(205, 180, 219, 0.5);
+    }
+
+    .sparkle {
+        position: fixed;
+        width: 6px;
+        height: 6px;
+        background: white;
+        border-radius: 50%;
+        opacity: 0.8;
+        animation: twinkle 2s infinite ease-in-out alternate;
+    }
+
+    @keyframes twinkle {
+        from { transform: scale(0.5); opacity: 0.3; }
+        to { transform: scale(1.5); opacity: 1; }
+    }
+</style>
+</head>
+
+<body>
+
+<div class="box">
+    <h1>Noyo, will you be my Valentine? 💖</h1>
+    <p>This question comes with lots of butterflies 🦋</p>
+    <button id="yesBtn">YES 💘</button>
+    <button id="noBtn">NO 🙈</button>
+</div>
+
+<script>
+    const noBtn = document.getElementById("noBtn");
+    const yesBtn = document.getElementById("yesBtn");
+
+    // NO button runs away
+    noBtn.addEventListener("mouseover", () => {
+        const x = Math.random() * (window.innerWidth - noBtn.offsetWidth);
+        const y = Math.random() * (window.innerHeight - noBtn.offsetHeight);
+        noBtn.style.left = x + "px";
+        noBtn.style.top = y + "px";
+    });
+
+    // Go to surprise page
+    yesBtn.addEventListener("click", () => {
+        window.location.href = "yes.html";
+    });
+
+    // Cute sparkles in background
+    setInterval(() => {
+        const sparkle = document.createElement("div");
+        sparkle.classList.add("sparkle");
+        sparkle.style.left = Math.random() * 100 + "vw";
+        sparkle.style.top = Math.random() * 100 + "vh";
+        document.body.appendChild(sparkle);
+        setTimeout(() => sparkle.remove(), 2000);
+    }, 200);
+</script>
+
+</body>
+</html>
